@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BotFights.iml" filepath="$PROJECT_DIR$/BotFights.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rs.etf.stud.botfights.tictactoe/rs.etf.stud.botfights.tictactoe.iml" filepath="$PROJECT_DIR$/rs.etf.stud.botfights.tictactoe/rs.etf.stud.botfights.tictactoe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rs.etf.stud.botfights.tictactoeblack/rs.etf.stud.botfights.tictactoeblack.iml" filepath="$PROJECT_DIR$/rs.etf.stud.botfights.tictactoeblack/rs.etf.stud.botfights.tictactoeblack.iml" />
+    </modules>
+  </component>
+</project>

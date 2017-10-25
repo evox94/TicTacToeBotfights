@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <style>
+        #content {
+            min-width: 650px;
+            height: 100%;
+            margin: auto;
+        }
+
+        #main-img {
+            display: inline;
+            width: 100px;
+            vertical-align: middle;
+        }
+
+        #title {
+            display: inline-block;
+        }
+
+        #header {
+            text-align: center;
+        }
+
+        #tic_tac_toe_example {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="header">
+        <h1 id="title">Tic-tac-toe</h1>
+        <img id="main-img" src="localresource:Tic_tac_toe.jpg">
+    </div>
+    <hr/>
+    <div id="main">
+        <h3>Game Description:</h3>
+        <p>
+            <b>Tic-tac-toe</b> (also known as <b>noughts and crosses</b> or <b>Xs and Os</b>) is a paper-and-pencil game
+            for two players, <i>X</i> and <i>O</i>,
+            who take turns marking the spaces in a 3x3 grid.
+            The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the
+            game.
+        </p>
+
+        <p>The following example game is won by the first player, X:</p>
+        <img id="tic_tac_toe_example" src="localresource:479px-Tic-tac-toe-game-.png"/>
+        <p>Because of the simplicity of tic-tac-toe, it is often used as a pedagogical tool for teaching the concepts of
+            good sportsmanship and the branch of artificial intelligence
+            that deals with the searching of game trees.
+        </p>
+
+        <p>
+            It is straightforward to write a computer program to play tic-tac-toe perfectly, to enumerate the 765
+            essentially different positions (the state space complexity),
+            or the 26,830 possible games up to rotations and reflections (the game tree complexity) on this space.
+        </p>
+
+        <p><i>More about the game: <a href="https://en.wikipedia.org/wiki/Tic-tac-toe">wikipedia article</a></i></p>
+
+        <h3>How to 'play':</h3>
+        <p>Game state is represented by a 3x3 integer matrix. Integers range from 0 to 2:</p>
+        <ul>
+            <li>0 - empty space</li>
+            <li>1 - You</li>
+            <li>2 - Your opponent</li>
+        </ul>
+        <p>This is little bit different then in a more 'traditional' implementation where 1s are <i>X</i>s and 2s are
+            <i>O</i>s. In this case '1' will ALWAYS be your symbol
+            whether you are an <i>X</i> or an <i>O</i>. This is done so player algorithms are symmetrical and can be
+            interchanged easily.</p>
+        <p>You can still figure out if you are one or the other, based on the state of the board during your first move(it really shouldn't matter much).</p>
+        <h4>Algorithm example:</h4>
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre
+                style="margin: 0; line-height: 125%"><span
+                style="color: #008800; font-weight: bold">package</span> com<span style="color: #333333">.</span><span
+                style="color: #0000CC">example</span><span style="color: #333333">.</span><span style="color: #0000CC">mypackage</span><span
+                style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span
+                    style="color: #008800; font-weight: bold">class</span> <span
+                    style="color: #BB0066; font-weight: bold">TicTacToeBot</span> <span style="color: #333333">{</span>
+
+    <span style="color: #008800; font-weight: bold">final</span> <span
+                    style="color: #008800; font-weight: bold">public</span> <span
+                    style="color: #008800; font-weight: bold">static</span> <span
+                    style="color: #333399; font-weight: bold">int</span> FREE_SPACE <span
+                    style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span
+                    style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">final</span> <span
+                    style="color: #008800; font-weight: bold">public</span> <span
+                    style="color: #008800; font-weight: bold">static</span> <span
+                    style="color: #333399; font-weight: bold">int</span> MY_SYMBOL <span style="color: #333333">=</span> <span
+                    style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span> <span
+                    style="color: #888888">//You are always 1</span>
+    <span style="color: #008800; font-weight: bold">final</span> <span
+                    style="color: #008800; font-weight: bold">public</span> <span
+                    style="color: #008800; font-weight: bold">static</span> <span
+                    style="color: #333399; font-weight: bold">int</span> OPPONENT <span style="color: #333333">=</span> <span
+                    style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">;</span>
+
+    <span style="color: #008800; font-weight: bold">public</span> <span
+                    style="color: #008800; font-weight: bold">static</span> <span
+                    style="color: #333399; font-weight: bold">void</span> <span
+                    style="color: #0066BB; font-weight: bold">move</span><span style="color: #333333">(</span><span
+                    style="color: #333399; font-weight: bold">int</span><span
+                    style="color: #333333">[][]</span> board<span style="color: #333333">){</span>
+        <span style="color: #888888">//your code goes here:</span>
+        <span style="color: #888888">//example code:</span>
+        <span style="color: #888888">//play on the first &#39;free&#39; board square</span>
+        <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span
+                    style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span
+                    style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i <span
+                    style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">3</span><span
+                    style="color: #333333">;</span> i<span style="color: #333333">++)</span> <span
+                    style="color: #333333">{</span>
+            <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span
+                    style="color: #333399; font-weight: bold">int</span> j <span style="color: #333333">=</span> <span
+                    style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> j <span
+                    style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">3</span><span
+                    style="color: #333333">;</span> j<span style="color: #333333">++)</span> <span
+                    style="color: #333333">{</span>
+                <span style="color: #008800; font-weight: bold">if</span><span style="color: #333333">(</span>board<span
+                    style="color: #333333">[</span>i<span style="color: #333333">][</span>j<span style="color: #333333">]</span> <span
+                    style="color: #333333">==</span> FREE_SPACE<span style="color: #333333">){</span>
+                    <span style="color: #888888">//You output your move by using System.out.println() or System.out.print()</span>
+                    <span style="color: #888888">//If you have a need for debuging use System.err</span>
+                    System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span
+                    style="color: #333333">.</span><span style="color: #0000CC">println</span><span
+                    style="color: #333333">(</span>i<span style="color: #333333">+</span><span
+                    style="background-color: #fff0f0">&quot; &quot;</span><span style="color: #333333">+</span>j<span
+                    style="color: #333333">);</span><span style="color: #888888">//this is one of the formats game accepts</span>
+                    <span style="color: #008800; font-weight: bold">return</span><span style="color: #333333">;</span>                     <span
+                    style="color: #888888">//be sure to return unless you want to output more moves;</span>
+                <span style="color: #333333">}</span>
+            <span style="color: #333333">}</span>
+        <span style="color: #333333">}</span>
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre>
+        </div>
+        <p>When you are ready to output your move you can do that by calling <code>System.out.println()</code> or <code>System.out.print()</code> methods.<br/> Here are the string formats that you can use to output your move:</p>
+        <ul>
+            <li>0 2</li>
+            <li>0,2</li>
+            <li>0, 2</li>
+            <li>02</li>
+        </ul>
+        <p>All of these mean that you want to play your symbol(X or O) at the square: row '0' column '2'. That's the right most upper corner of the board.
+            If you output for example <code>System.out.println("1 1")</code> that means that you want to play at the middle of the board.
+        </p>
+        <p>Each call to the <code>System.out.println()</code> is interpreted as one move, so be sure to use it once per method call, unless you can predict the future.</p>
+        <p>Any invalid move (out-of-bounds/playing on a filled square) will stop the game and you will lose.</p>
+        <p>If you have a need to debug use <code>System.err</code>. You will be able to see the output in both the System and Simulator consoles.</p>
+        <p>There are no early draws in the game, game keeps going on until there is a clear winner or until the 3x3 grid is filled. If there isn't a winner after the grid is filled, a draw is called.</p>
+        <h3>Supported Languages:</h3>
+        <p>At the moment only <span style="color: orange;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Java</span> :(</p>
+
+        <h3>Restrictions:</h3>
+        <p>You have 'only' <b>100ms</b> to compute the move once your method is called.</p>
+    </div>
+</div>
+</body>
+</html>

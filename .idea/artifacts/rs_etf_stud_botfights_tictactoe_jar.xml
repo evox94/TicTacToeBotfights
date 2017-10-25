@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="rs.etf.stud.botfights.tictactoe:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/rs_etf_stud_botfights_tictactoe_jar</output-path>
+    <root id="archive" name="rs.etf.stud.botfights.tictactoe.jar">
+      <element id="module-output" name="rs.etf.stud.botfights.tictactoe" />
+    </root>
+  </artifact>
+</component>
